@@ -1,9 +1,9 @@
 {
   "name": "@shoukoo/backstage-plugin-scaffolder-cuelang",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Backstage template action",
-  "main": "index.js",
-  "types": "src/index.ts",
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
     "main": "dist/index.cjs.js",
@@ -17,18 +17,20 @@
     "build": "backstage-cli backend:build",
     "lint": "backstage-cli lint",
     "test": "backstage-cli test",
+    "prepack": "backstage-cli package prepack",
+    "postpack": "backstage-cli package postpack",
     "clean": "backstage-cli clean"
   },
   "author": "Andy",
   "license": "MIT",
   "dependencies": {
-    "@backstage/backend-common": "^0.19.1-next.0",
-    "@backstage/integration": "^1.5.1-next.0",
-    "@backstage/plugin-auth-node": "^0.2.16-next.0",
-    "@backstage/plugin-scaffolder-backend": "^1.15.1-next.0"
+    "@backstage/backend-common": "^0.19.0",
+    "@backstage/integration": "^1.5.0",
+    "@backstage/plugin-auth-node": "^0.2.15",
+    "@backstage/plugin-scaffolder-backend": "^1.15.0"
   },
   "devDependencies": {
-    "@backstage/backend-common": "^0.18.3",
+    "@backstage/backend-common": "^0.19.0",
     "@types/command-exists": "^1.2.0",
     "@types/fs-extra": "^11.0.1"
   },
