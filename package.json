@@ -1,7 +1,7 @@
 {
-  "name": "@mdude2314/backstage-plugin-scaffolder-cuelang",
+  "name": "@shoukoo/backstage-plugin-scaffolder-cuelang",
   "version": "0.1.0",
-  "description": "",
+  "description": "Backstage template action",
   "main": "index.js",
   "types": "src/index.ts",
   "publishConfig": {
@@ -17,12 +17,10 @@
     "build": "backstage-cli backend:build",
     "lint": "backstage-cli lint",
     "test": "backstage-cli test",
-    "prepack": "backstage-cli prepack",
-    "postpack": "backstage-cli postpack",
     "clean": "backstage-cli clean"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Andy",
+  "license": "MIT",
   "dependencies": {
     "@backstage/backend-common": "^0.19.1-next.0",
     "@backstage/integration": "^1.5.1-next.0",
@@ -36,5 +34,17 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shoukoo/backstage-plugin-scaffolder-cuelang.git"
+  },
+  "keywords": [
+    "Backstage",
+    "Template"
+  ],
+  "bugs": {
+    "url": "https://github.com/shoukoo/backstage-plugin-scaffolder-cuelang/issues"
+  },
+  "homepage": "https://github.com/shoukoo/backstage-plugin-scaffolder-cuelang#readme"
 }
