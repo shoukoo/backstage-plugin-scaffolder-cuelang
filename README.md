@@ -1,7 +1,7 @@
 # Backstage template action for Cuelang
 This is a Cuelang actions plugin for the scaffolder-backend in Backstage.
 
-This action uses Cue flow engine to generate template dynamically, you can read more detail [here](https://cuetorials.com/go-api/workflows/custom/)
+This action utilises the Cue flow engine to dynamically generate templates, you can read more detail [here](https://cuetorials.com/go-api/workflows/custom/)
 
 ## Prerequisites
 Ensure that Cuelang is properly installed in the Backstage instance
