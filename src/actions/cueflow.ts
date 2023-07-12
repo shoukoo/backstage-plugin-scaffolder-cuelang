@@ -76,8 +76,6 @@ export function cueFlowAction(options: {
       const templateDir = resolveSafeChildPath(workDir, 'template');
 
 
-      // const targetPath = ctx.input.targetPath ?? './';
-      // const outputDir = resolveSafeChildPath(ctx.workspacePath, targetPath);
       await fetchContents({
         reader,
         integrations,
@@ -101,7 +99,7 @@ export function cueFlowAction(options: {
         ctx.logger.info(`Importing config under ${cuePkg}`);
         await executeShellCommand({
           command: "cue",
-          args: ["import", "-p", `${cuePkg}`, "config.json"],
+          args: ["import", "-p", `${cuePkg}`, "-l", '"config"',"config.json"],
           logStream: ctx.logStream,
           options: { cwd: templateDir },
         });
