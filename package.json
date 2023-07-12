@@ -13,13 +13,11 @@
     "role": "backend-plugin"
   },
   "scripts": {
-    "start": "backstage-cli backend:dev",
+    "tsc": "tsc",
     "build": "backstage-cli package build",
     "clean": "backstage-cli package clean",
-    "test": "backstage-cli test",
     "prepack": "backstage-cli package prepack",
     "postpack": "backstage-cli package postpack",
-    "clean": "backstage-cli clean"
   },
   "author": "Andy",
   "license": "MIT",
