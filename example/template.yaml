@@ -1,0 +1,44 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: example-cue-template
+  title: Example Cue Template
+  description: An example template for the scaffolder that creates template via Cue
+spec:
+  owner: user:guest
+  type: service
+  parameters:
+    - title: Fill in some steps
+      required:
+        - name
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        category:
+          title: Category
+          type: string
+
+  steps:
+    - id: fetch-base
+      name: Fetch Base
+      action: cue:cueflow
+      input:
+        url: ./cue
+        values:
+          workspace_name: ${{ parameters.name }}
+          category: ${{ parameters.category }}
+
+    - id: open-pr
+      name: "Open PR in GitOps Repository"
+      action: publish:github:pull-request
+      input:
+        repoUrl: github.com?repo=x&owner=shoukoo
+        branchName: create-${{ parameters.name}}
+        title: ':robot: [backstage-bot] Create PR'
+        description: |
+          # New project
