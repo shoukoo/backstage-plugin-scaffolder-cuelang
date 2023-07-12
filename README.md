@@ -4,15 +4,14 @@ This is a Cuelang actions plugin for the scaffolder-backend in Backstage.
 This action uses Cue flow engine to generate template dynamically, you can read more detail [here](https://cuetorials.com/go-api/workflows/custom/)
 
 ## Prerequisites
-Cuelang must be installed in the environment your Backstage instance is running in
-Getting started
+Ensure that Cuelang is properly installed in the Backstage instance
 
 ## Installation 
 In the root directory of your Backstage project:
 ```bash 
 yarn add --cwd packages/backend @shoukoo/backstage-plugin-scaffolder-cuelang
 ```
-
+## Getting started
 Add the actions to the scaffolder:
 ```
 
