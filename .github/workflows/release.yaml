@@ -1,0 +1,49 @@
+name: Publish Build
+
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@main
+
+    - name: Set up Node.js
+      uses: actions/setup-node@main
+      with:
+        node-version: 18.x
+
+    - name: upgrade
+      run: npm version patch --git-tag-version=false
+
+    - name: installation 
+      run: npm install --frozen-lockfile 
+
+    - name: build type declarations
+      run: npm run tsc || true
+
+    - name: build packages
+      run: npm run build
+
+    - name: 'login to npmjs npm repo .npmrc'
+      shell: bash
+      run: |
+        echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" >> .npmrc
+        echo "always-auth = true" >> .npmrc
+
+    - name: run publish
+      run: |
+        npm publish
+
+    - name: commit version bump
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add package.json
+        git commit -m "Bump version [skip-ci]"
+        git push origin
+
