@@ -1,6 +1,6 @@
 {
   "name": "@shoukoo/backstage-plugin-scaffolder-cuelang",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "Backstage template action",
   "main": "index.js",
   "types": "src/index.ts",
