@@ -22,12 +22,12 @@ import (
 
 command: run: {
 	mkdir: file.MkdirAll & {
-		path: "out/workspaces/\(config.workspace_name)/"
+		path: "out/workspaces/\(values.workspace_name)/"
 	}
 
 	create: file.Create & {
 		$dep:     mkdir.$done
-		filename: "out/workspaces/\(config.workspace_name)/workspace.yaml"
-		contents: yaml.Marshal(#Workflow & {_name: config.workspace_name, _category: config.category})
+		filename: "out/workspaces/\(values.workspace_name)/workspace.yaml"
+		contents: yaml.Marshal(#Workflow & {_name: values.workspace_name, _category: values.category})
 	}
 }

@@ -84,7 +84,7 @@ export function cueFlowAction(options: {
         outputPath: templateDir,
       });
 
-      await fs.writeJSON(path.join(templateDir, 'config.json'), ctx.input.values);
+      await fs.writeJSON(path.join(templateDir, 'values.json'), ctx.input.values);
 
       // the command-exists package returns `true` or throws an error
       const cueInstalled = await commandExists('cue').catch(
@@ -99,7 +99,7 @@ export function cueFlowAction(options: {
         ctx.logger.info(`Importing config under ${cuePkg}`);
         await executeShellCommand({
           command: "cue",
-          args: ["import", "-p", `${cuePkg}`, "-l", '"config"',"config.json"],
+          args: ["import", "-p", `${cuePkg}`, "-l", '"values"',"values.json"],
           logStream: ctx.logStream,
           options: { cwd: templateDir },
         });
