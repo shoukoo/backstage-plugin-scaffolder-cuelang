@@ -32,7 +32,7 @@ const builtInActions = createBuiltinActions({
 });
 
 const actions = [
-  cueFlowAction({integrations,reader: env.reader,})
+  cueFlowAction({integrations,reader: env.reader,}),
   ...builtInActions
 ];
 
